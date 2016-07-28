@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--   floating button  -->
+    <declare-styleable name="GiftDisPlayLayout">
+        <attr name="rfal_frame_color" format="color"/>
+        <attr name="rfal_frame_alpha" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="LeftGiftsItemLayout">
+        <attr name="left_gift_layout_index" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="MagicTextView">
+        <attr name="innerShadowColor" format="color" />
+        <attr name="innerShadowRadius" format="float" />
+        <attr name="innerShadowDx" format="float" />
+        <attr name="innerShadowDy" format="float" />
+
+        <attr name="outerShadowColor" format="color" />
+        <attr name="outerShadowRadius" format="float" />
+        <attr name="outerShadowDx" format="float" />
+        <attr name="outerShadowDy" format="float" />
+
+        <attr name="typeface" format="string" />
+
+        <attr name="foreground" format="reference|color" />
+
+        <attr name="strokeWidth1" format="float" />
+        <attr name="strokeMiter1" format="float" />
+        <attr name="strokeColor1" format="color" />
+        <attr name="strokeJoinStyle1">
+            <enum name="miter" value="0" />
+            <enum name="bevel" value="1" />
+            <enum name="round" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="NumberPicker">
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="float|dimension" />
+        <attr name="startNumber" format="integer" />
+        <attr name="endNumber" format="integer" />
+        <attr name="currentNumber" format="integer" />
+        <attr name="verticalSpacing" format="dimension" />
+        <attr name="flagText" format="string|reference" />
+        <attr name="flagTextSize" format="dimension" />
+        <attr name="flagTextColor" format="color" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="rowNumber" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewPager">
+        <attr name="orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ViewPagerIndicator">
+        <!-- Style of the circle indicator. -->
+        <attr name="vpiCirclePageIndicatorStyle" format="reference"/>
+        <!-- Style of the icon indicator's views. -->
+        <attr name="vpiIconPageIndicatorStyle" format="reference"/>
+        <!-- Style of the line indicator. -->
+        <attr name="vpiLinePageIndicatorStyle" format="reference"/>
+        <!-- Style of the title indicator. -->
+        <attr name="vpiTitlePageIndicatorStyle" format="reference"/>
+        <!-- Style of the tab indicator's tabs. -->
+        <attr name="vpiTabPageIndicatorStyle" format="reference"/>
+        <!-- Style of the underline indicator. -->
+        <attr name="vpiUnderlinePageIndicatorStyle" format="reference"/>
+    </declare-styleable>
+
+    <attr name="centered" format="boolean" />
+    <attr name="selectedColor" format="color" />
+    <attr name="strokeWidth" format="dimension" />
+    <attr name="unselectedColor" format="color" />
+    <attr name="radius" format="dimension" />
+
+    <declare-styleable name="CirclePageIndicator">
+        <!-- Whether or not the indicators should be centered. -->
+        <attr name="centered" />
+        <!-- Color of the filled circle that represents the current page. -->
+        <attr name="fillColor" format="color" />
+        <!-- Color of the filled circles that represents pages. -->
+        <attr name="pageColor" format="color" />
+        <!-- Orientation of the indicator. -->
+        <attr name="android:orientation"/>
+        <!-- Radius of the circles. This is also the spacing between circles. -->
+        <attr name="radius" />
+        <!-- Whether or not the selected indicator snaps to the circles. -->
+        <attr name="snap" format="boolean" />
+        <!-- Color of the open circles. -->
+        <attr name="strokeColor" format="color" />
+        <!-- Width of the stroke used to draw the circles. -->
+        <attr name="strokeWidth" />
+        <!-- View background -->
+        <attr name="android:background"/>
+    </declare-styleable>
+
+</resources>

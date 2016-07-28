@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center">
+
+    <View
+        android:id="@+id/center"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"/>
+
+    <ImageView
+        android:id="@+id/page_two_center_bg"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/image_two_centerbg"/>
+
+    <ImageView
+        android:id="@+id/page_two_new_feature"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/image_two_new_feature"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/page_two_bu1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/center"
+        android:layout_above="@+id/center"
+        android:layout_marginRight="90dp"
+        android:src="@mipmap/image_two_bu1"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/page_two_bu2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toLeftOf="@+id/center"
+        android:layout_above="@+id/center"
+        android:layout_marginBottom="55dp"
+        android:layout_marginRight="60dp"
+        android:src="@mipmap/image_two_bu2"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/page_two_bu3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@+id/center"
+        android:layout_above="@+id/center"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="50dp"
+        android:src="@mipmap/image_two_bu3"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/page_two_bu4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/center"
+        android:layout_above="@+id/center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="80dp"
+        android:src="@mipmap/image_two_bu4"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/page_two_text"
+        android:layout_width="230dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/page_two_new_feature"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/image_two_text"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

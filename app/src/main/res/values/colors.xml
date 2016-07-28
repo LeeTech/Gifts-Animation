@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- RFAL的frame覆盖层颜色 -->
+    <color name="rfab__color_frame">#ffffff</color>
+
+    <color name="floatingbutton_transparent">#87FFFFFF</color>
+
+    <color name="purple_500">#6fffffff</color>
+    <color name="purple_200">#6fCE93D8</color>
+</resources>

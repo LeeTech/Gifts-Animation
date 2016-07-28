@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <View
+        android:id="@+id/center"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"/>
+
+    <ImageView
+        android:id="@+id/page_three_center_bg"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/center"
+        android:layout_marginBottom="-70dp"
+        android:src="@mipmap/image_three_centerbg"/>
+
+    <ImageView
+        android:id="@+id/page_three_redpkg1"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_toLeftOf="@+id/center"
+        android:layout_above="@+id/center"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="40dp"
+        android:src="@mipmap/image_three_redpkg1"/>
+
+    <ImageView
+        android:id="@+id/page_three_redpkg2"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_toRightOf="@+id/center"
+        android:layout_above="@+id/center"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="100dp"
+        android:src="@mipmap/image_three_redpkg2"/>
+
+    <ImageView
+        android:id="@+id/page_three_redpkg3"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_toRightOf="@+id/center"
+        android:layout_below="@+id/center"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="80dp"
+        android:src="@mipmap/image_three_redpkg3"/>
+
+    <ImageView
+        android:id="@+id/page_three_center_hand"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/center"
+        android:layout_marginBottom="-58dp"
+        android:src="@mipmap/image_three_center_hand"/>
+
+    <ImageView
+        android:id="@+id/page_three_text"
+        android:layout_width="230dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="90dp"
+        android:scaleType="centerCrop"
+        android:layout_below="@+id/center"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/image_three_text"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/page_three_go"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/page_three_text"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/image_three_go"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

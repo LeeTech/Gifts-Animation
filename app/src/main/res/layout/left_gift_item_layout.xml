@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:alpha="40"
+    android:background="@drawable/rounded_bg"
+    android:paddingRight="10dp">
+
+    <ImageView
+        android:id="@+id/headIv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:id="@+id/infoLl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/headIv"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nickNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="nickName" />
+
+        <TextView
+            android:id="@+id/infoTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:text="送了一个+U鹿" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/giftIv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/infoLl"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="invisible" />
+
+    <cn.lry.animation.guide.MagicTextView
+        android:id="@+id/numberTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/giftIv"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:foreground="@android:color/holo_blue_bright"
+        app:innerShadowColor="#FF000000"
+        app:innerShadowDy="2"
+        app:innerShadowRadius="1"
+        app:strokeColor1="@android:color/white"
+        app:strokeJoinStyle1="miter"
+        app:strokeWidth1="1" />
+
+</RelativeLayout>
