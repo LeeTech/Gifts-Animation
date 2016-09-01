@@ -28,4 +28,9 @@
             android:visibility="invisible"
             app:left_gift_layout_index="1" />
     </cn.lry.animation.guide.LeftGiftControlLayout>
-    ```
+```
+ 2.Step
+```
+LeftGiftControlLayout giftLl = (LeftGiftControlLayout) findViewById(R.id.giftLl);
+giftLl.loadGift(GiftModel.create("123", "安卓机器人", 1, "http://join.com", "123", "Lee123", "http://join.com"));
+```
