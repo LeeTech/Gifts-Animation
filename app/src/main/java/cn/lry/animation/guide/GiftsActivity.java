@@ -30,6 +30,8 @@ public class GiftsActivity extends AppCompatActivity {
 
     private ScaleAnimation giftNumAnim;//修改礼物数量的动画
 
+    private RoundProgressBar mRoundPb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,13 @@ public class GiftsActivity extends AppCompatActivity {
         giftLl = (LeftGiftControlLayout) findViewById(R.id.giftLl);
         magicTextView = (MagicTextView) findViewById(R.id.gift_num);
         giftNumAnim = (ScaleAnimation) AnimationUtils.loadAnimation(this, R.anim.gift_num);
+        mRoundPb = (RoundProgressBar) findViewById(R.id.roundPb);
+        mRoundPb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mRoundPb.resetProgress();
+            }
+        });
 
         GiftManage.init(this);
 

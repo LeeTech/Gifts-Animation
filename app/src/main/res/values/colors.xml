@@ -10,4 +10,10 @@
 
     <color name="purple_500">#6fffffff</color>
     <color name="purple_200">#6fCE93D8</color>
+
+    <color name="yellow_500">#EEF0C4</color>
+    <color name="yellow_200">#EEF04E</color>
+
+    <color name="blue_500">#BFEAFF</color>
+    <color name="blue_200">#1FEAFF</color>
 </resources>

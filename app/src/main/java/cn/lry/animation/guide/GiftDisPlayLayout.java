@@ -95,20 +95,7 @@ public class GiftDisPlayLayout extends RelativeLayout implements OnClickListener
 
     private GiftAnimationble currentShowingGit;
 
-    private Runnable crrentShwoRunnable;
-
-    /**
-     * 展开的内容RFAC是否显示在RFAB上方，否则就覆盖在RFAB上面，默认true
-     */
-    private boolean isContentAboveLayout = true;
-
-    public void setIsContentAboveLayout(boolean isContentAboveLayout) {
-        this.isContentAboveLayout = isContentAboveLayout;
-    }
-
-    public boolean isContentAboveLayout() {
-        return isContentAboveLayout;
-    }
+    private Runnable mCrrentShowRunnable;
 
     public GiftDisPlayLayout init() {
         giftsControl = GiftsControl.getInstance();
@@ -141,9 +128,9 @@ public class GiftDisPlayLayout extends RelativeLayout implements OnClickListener
             currentShowingGit.stopAnimation();
             currentShowingGit = null;
         }
-        if (crrentShwoRunnable != null) {
-            handler.removeCallbacks(crrentShwoRunnable);
-            crrentShwoRunnable = null;
+        if (mCrrentShowRunnable != null) {
+            handler.removeCallbacks(mCrrentShowRunnable);
+            mCrrentShowRunnable = null;
         }
         collapseContent();
         removeShowGiftView();
@@ -157,9 +144,9 @@ public class GiftDisPlayLayout extends RelativeLayout implements OnClickListener
             currentShowingGit.stopAnimation();
             currentShowingGit = null;
         }
-        if (crrentShwoRunnable != null) {
-            handler.removeCallbacks(crrentShwoRunnable);
-            crrentShwoRunnable = null;
+        if (mCrrentShowRunnable != null) {
+            handler.removeCallbacks(mCrrentShowRunnable);
+            mCrrentShowRunnable = null;
         }
         collapseContent();
         removeShowGiftView();
@@ -195,8 +182,8 @@ public class GiftDisPlayLayout extends RelativeLayout implements OnClickListener
             GiftAnimationble git = factory.getGiftAnimationView();
             addView(git.getAnimationView(), 1, lp);
             git.startAnimation();
-            crrentShwoRunnable = new ShowGiftsRunnable(git);
-            handler.postDelayed(crrentShwoRunnable, factory.getGiftShowingTime());
+            mCrrentShowRunnable = new ShowGiftsRunnable(git);
+            handler.postDelayed(mCrrentShowRunnable, factory.getGiftShowingTime());
             showStatus = SHOWING;
         }
     }

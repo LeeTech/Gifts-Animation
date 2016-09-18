@@ -20,6 +20,7 @@ import android.widget.TextView;
 import java.util.concurrent.TimeUnit;
 
 import cn.lry.animation.R;
+import cn.lry.animation.control.GiftManage;
 import cn.lry.animation.control.GiftModel;
 import cn.lry.animation.utils.BusProvider;
 import rx.Observable;
@@ -50,6 +51,8 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
     private volatile GiftModel mGift;
 
     private MagicTextView mCountTv;
+
+    private RoundProgressBar mRoundPb;
 
     /**
      * 等待中
@@ -132,6 +135,7 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
         mInfoTv = (TextView) contentView.findViewById(R.id.infoTv);
         mGiftsIv = (ImageView) contentView.findViewById(R.id.giftIv);
         mCountTv = (MagicTextView) contentView.findViewById(R.id.numberTv);
+        mRoundPb = (RoundProgressBar) contentView.findViewById(R.id.roundPb);
 
         mGiftAnimation = new TranslateAnimation(-300, 0, 0, 0);
         mGiftAnimation.setDuration(800);
@@ -222,10 +226,11 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
     @Override
     public boolean handleMessage(Message msg) {
         switch (msg.what) {
-            case RESTARTGIFTANIMATION_CODE:
+            case RESTART_GIFT_ANIMATION_CODE:
                 mNum++;
                 mCountTv.setText("X" + mNum);
                 mCountTv.startAnimation(mGiftNumAnim);
+                changeRoundColor(mNum);
                 stopCheckGiftCount();
                 removeDismissGiftCallback();
                 break;
@@ -233,6 +238,47 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
                 break;
         }
         return true;
+    }
+
+    /**
+     * 改变进度条背景颜色
+     *
+     * @param giftCount
+     */
+    private void changeRoundColor(int giftCount) {
+        int currentColorTag = getTag() == null ? 0 : (int) getTag();
+        for (int i = 0; i < GiftManage.mNumColorArray.length; i++) {
+            if (giftCount >= GiftManage.mNumColorArray[i]) {
+                if (i < GiftManage.mNumColorArray.length - 1) {
+                    if (giftCount >= GiftManage.mNumColorArray[i] && giftCount < GiftManage.mNumColorArray[i + 1]) {
+                        settRoundColorTag(currentColorTag, i);
+                    }
+                } else {
+                    if (giftCount >= GiftManage.mNumColorArray[i]) {
+                        settRoundColorTag(currentColorTag, i);
+                    }
+                }
+            }
+        }
+    }
+
+    private void settRoundColorTag(int currentColorTag, int i) {
+        mRoundPb.setRoundColor(GiftManage.mRoundColorArray[i]);
+        if (currentColorTag != GiftManage.mNumColorArray[i]) {
+            initRoundBackGround();
+            setTag(GiftManage.mNumColorArray[i]);
+        }
+    }
+
+    public void relaseBackGround() {
+        mRoundPb.resetLayoutWidth();
+        mRoundPb.setVisibility(View.INVISIBLE);
+    }
+
+    private void initRoundBackGround() {
+        mRoundPb.setVisibility(View.VISIBLE);
+        mRoundPb.resetLayoutWidth();
+        mRoundPb.resetProgress();
     }
 
     /**
@@ -248,7 +294,7 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
         @Override
         public void onAnimationEnd(Animation animation) {
             if (mGiftCount > mNum) {
-                mHandler.sendEmptyMessage(RESTARTGIFTANIMATION_CODE);
+                mHandler.sendEmptyMessage(RESTART_GIFT_ANIMATION_CODE);
             } else {
                 checkGiftCountSubscribe();
                 mCurrentAnimRunnable = new GiftNumAnimaRunnable();
@@ -265,7 +311,7 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
         void dismiss(int index);
     }
 
-    private static final int RESTARTGIFTANIMATION_CODE = 1002;
+    private static final int RESTART_GIFT_ANIMATION_CODE = 1002;
 
 
     private void checkGiftCountSubscribe() {
@@ -280,7 +326,7 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
                         @Override
                         public void call(Void aVoid) {
                             if (mGiftCount > mNum) {
-                                mHandler.sendEmptyMessage(RESTARTGIFTANIMATION_CODE);
+                                mHandler.sendEmptyMessage(RESTART_GIFT_ANIMATION_CODE);
                             }
                         }
                     });

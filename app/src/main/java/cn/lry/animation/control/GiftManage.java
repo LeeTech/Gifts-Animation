@@ -25,6 +25,10 @@ public class GiftManage {
 
     private static HashMap<String, Integer> mLeftGiftMap;
 
+    public static int[] mNumColorArray;
+
+    public static int[] mRoundColorArray;
+
     /**
      * 用户配置礼物,如有新的礼物加入,add到集合即可(必须先初始化)
      *
@@ -39,6 +43,13 @@ public class GiftManage {
         // 左侧小礼物
         mLeftGiftMap = new HashMap<>();
         mLeftGiftMap.put("123", R.mipmap.ic_launcher);
+
+        mNumColorArray = new int[]{3, 5, 10};
+        mRoundColorArray = new int[]{R.drawable.progress_background_shape, R.drawable.progress_yellow_background_shape, R.drawable.progress_blue_background_shape};
+
+        if (mNumColorArray.length != mRoundColorArray.length) {
+            throw new IllegalArgumentException("The number of array must be consistent with the length of the color set");
+        }
     }
 
     public static int getGiftRes(String giftId) {

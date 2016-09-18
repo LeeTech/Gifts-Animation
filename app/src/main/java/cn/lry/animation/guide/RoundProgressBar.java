@@ -2,6 +2,7 @@ package cn.lry.animation.guide;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -26,6 +27,8 @@ import rx.schedulers.Schedulers;
  * Date 2016/6/24 18:45
  */
 public class RoundProgressBar extends LinearLayout {
+
+    private static final String TAG = "RoundProgressBar";
 
     /**
      * 最大进度
@@ -68,7 +71,8 @@ public class RoundProgressBar extends LinearLayout {
         mProIv = (ImageView) findViewById(R.id.proIv);
         mContentRl = (RelativeLayout) findViewById(R.id.contentRl);
         mAlphaAnimation = new AlphaAnimation(1.0f, 0f);
-        mAlphaAnimation.setDuration(1000);
+        mAlphaAnimation.setFillAfter(true);
+        mAlphaAnimation.setDuration(3000);
     }
 
     /**
@@ -86,9 +90,10 @@ public class RoundProgressBar extends LinearLayout {
         ViewGroup.LayoutParams progressParams = layoutProgress.getLayoutParams();
         progressParams.width = progressWidth;
         layoutProgress.setLayoutParams(progressParams);
+        Log.d(TAG, "width : " + progressWidth);
     }
 
-    private void drawTextProgressMargin(ImageView proIv, float max, float progress, int totalWidth) {
+    private void drawImgProgressMargin(ImageView proIv, float max, float progress, int totalWidth) {
         float ratio = max / progress;
         int progressWidth = (int) (totalWidth / ratio);
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) proIv.getLayoutParams();
@@ -111,9 +116,11 @@ public class RoundProgressBar extends LinearLayout {
                         @Override
                         public void call(Void aVoid) {
                             drawProgress(mLayoutProgress, mMax, mProgress, mTotalWidth);
-                            drawTextProgressMargin(mProIv, mMax, mProgress, mTotalWidth);
+//                            drawImgProgressMargin(mProIv, mMax, mProgress, mTotalWidth);
+                            Log.d(TAG, "Progress : " + mProgress);
                             if (mProgress > 100) {
-                                mContentRl.startAnimation(mAlphaAnimation);
+//                                mContentRl.startAnimation(mAlphaAnimation);
+                                stopProgress();
                             }
                         }
                     });
@@ -127,6 +134,19 @@ public class RoundProgressBar extends LinearLayout {
         }
     }
 
+    public void resetProgress() {
+        mProgress = 0;
+        startProgress();
+    }
+
+    public void resetLayoutWidth() {
+        drawProgress(mLayoutProgress, mMax, 0, mTotalWidth);
+    }
+
+    public void setRoundColor(int res) {
+        mLayoutProgress.setBackgroundResource(res);
+    }
+
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -134,7 +154,6 @@ public class RoundProgressBar extends LinearLayout {
         if (!isInEditMode()) {
             mTotalWidth = w;
             drawProgress(mLayoutProgress, mMax, 0, mTotalWidth);
-            startProgress();
         }
     }
 

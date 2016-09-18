@@ -125,11 +125,13 @@ public class LeftGiftControlLayout extends LinearLayout implements LeftGiftsItem
         public void onAnimationEnd(Animation animation) {
             if (mSecondItemGift.getCurrentShowStatus() == LeftGiftsItemLayout.SHOWEND) {
                 mSecondItemGift.setVisibility(View.INVISIBLE);
+                mSecondItemGift.relaseBackGround();
                 mSecondItemGift.setCurrentShowStatus(LeftGiftsItemLayout.WAITING);
             }
 
             if (mFirstItemGift.getCurrentShowStatus() == LeftGiftsItemLayout.SHOWEND) {
                 mFirstItemGift.setVisibility(View.INVISIBLE);
+                mFirstItemGift.relaseBackGround();
                 mFirstItemGift.setCurrentShowStatus(LeftGiftsItemLayout.WAITING);
             }
 

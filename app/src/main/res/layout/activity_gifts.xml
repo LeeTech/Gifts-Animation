@@ -26,9 +26,10 @@
         app:strokeWidth1="1" />
 
     <cn.lry.animation.guide.RoundProgressBar
+        android:id="@+id/roundPb"
         android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:visibility="gone" />
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp" />
 
     <cn.lry.animation.guide.GiftDisPlayLayout
         android:id="@+id/right_labels"
@@ -89,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
+            android:layout_marginRight="80dp"
             app:left_gift_layout_index="0" />
 
         <cn.lry.animation.guide.LeftGiftsItemLayout
@@ -97,6 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:visibility="invisible"
+            android:layout_marginRight="80dp"
             app:left_gift_layout_index="1" />
     </cn.lry.animation.guide.LeftGiftControlLayout>
 </RelativeLayout>
