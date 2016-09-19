@@ -1,6 +1,7 @@
 package cn.lry.animation.control;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
@@ -29,6 +30,8 @@ public class GiftManage {
 
     public static int[] mRoundColorArray;
 
+    public static int[][] mTextShapeColors;
+
     /**
      * 用户配置礼物,如有新的礼物加入,add到集合即可(必须先初始化)
      *
@@ -45,7 +48,14 @@ public class GiftManage {
         mLeftGiftMap.put("123", R.mipmap.ic_launcher);
 
         mNumColorArray = new int[]{3, 5, 10};
-        mRoundColorArray = new int[]{R.drawable.progress_background_shape, R.drawable.progress_yellow_background_shape, R.drawable.progress_blue_background_shape};
+        mRoundColorArray = new int[]{R.drawable.progress_background_shape,
+                R.drawable.progress_yellow_background_shape, R.drawable.progress_blue_background_shape};
+        mTextShapeColors = new int[][]{
+                {Color.parseColor("#F6E04C"), Color.parseColor("#F6E04C"), Color.parseColor("#FE8A18")},
+                {Color.parseColor("#26E3F7"), Color.parseColor("#26E3F7"), Color.parseColor("#08A4FD")},
+                {Color.parseColor("#B6EA01"), Color.parseColor("#B6EA01"), Color.parseColor("#66CC00")},
+        };
+
 
         if (mNumColorArray.length != mRoundColorArray.length) {
             throw new IllegalArgumentException("The number of array must be consistent with the length of the color set");

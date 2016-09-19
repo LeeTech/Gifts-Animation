@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
     tools:context="cn.lry.animation.guide.GiftsActivity">
 
     <cn.lry.animation.guide.MagicTextView
@@ -23,13 +22,13 @@
         app:innerShadowRadius="1"
         app:strokeColor1="@android:color/white"
         app:strokeJoinStyle1="miter"
-        app:strokeWidth1="1" />
+        app:strokeWidth1="2" />
 
     <cn.lry.animation.guide.RoundProgressBar
         android:id="@+id/roundPb"
         android:layout_width="300dp"
-        android:layout_marginTop="20dp"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp" />
 
     <cn.lry.animation.guide.GiftDisPlayLayout
         android:id="@+id/right_labels"
@@ -90,7 +89,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
-            android:layout_marginRight="80dp"
             app:left_gift_layout_index="0" />
 
         <cn.lry.animation.guide.LeftGiftsItemLayout
@@ -99,7 +97,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:visibility="invisible"
-            android:layout_marginRight="80dp"
             app:left_gift_layout_index="1" />
     </cn.lry.animation.guide.LeftGiftControlLayout>
 </RelativeLayout>

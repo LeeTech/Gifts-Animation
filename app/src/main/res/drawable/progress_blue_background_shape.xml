@@ -3,18 +3,12 @@
     android:shape="rectangle">
     <!-- 定义填充渐变颜色 -->
     <gradient
-        android:endColor="@color/blue_200"
-        android:startColor="@color/blue_500" />
+        android:endColor="@color/blue_end_color"
+        android:startColor="@color/blue_start_color" />
 
     <corners
         android:bottomLeftRadius="50dp"
         android:bottomRightRadius="50dp"
         android:topLeftRadius="50dp"
         android:topRightRadius="50dp" />
-
-    <padding
-        android:bottom="2dp"
-        android:left="0dp"
-        android:right="0dp"
-        android:top="2dp" />
 </shape>

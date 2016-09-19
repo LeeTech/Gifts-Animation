@@ -8,12 +8,12 @@
 
     <color name="floatingbutton_transparent">#87FFFFFF</color>
 
-    <color name="purple_500">#6fffffff</color>
-    <color name="purple_200">#6fCE93D8</color>
+    <color name="green_start_color">#64C928</color>
+    <color name="green_end_color">#A1BF2D</color>
 
-    <color name="yellow_500">#EEF0C4</color>
-    <color name="yellow_200">#EEF04E</color>
+    <color name="yellow_start_color">#E07F16</color>
+    <color name="yellow_end_color">#E7BB28</color>
 
-    <color name="blue_500">#BFEAFF</color>
-    <color name="blue_200">#1FEAFF</color>
+    <color name="blue_start_color">#E72950</color>
+    <color name="blue_end_color">#2DDEF4</color>
 </resources>

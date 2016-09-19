@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/rounded_bg">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <View
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:alpha="0.6"
+        android:background="@drawable/rounded_bg" />
 
     <cn.lry.animation.guide.RoundProgressBar
         android:id="@+id/roundPb"
-        android:layout_width="match_parent"
-        android:layout_height="55dp" />
+        android:layout_width="260dp"
+        android:layout_height="50dp" />
 
     <ImageView
         android:id="@+id/headIv"
@@ -32,7 +38,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="nickName" />
+            android:text="nickName"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/infoTv"
@@ -40,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginTop="5dp"
-            android:text="送了一个+U鹿" />
+            android:text="送了一个+U鹿"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
     <ImageView
@@ -53,22 +61,26 @@
         android:src="@mipmap/ic_launcher"
         android:visibility="invisible" />
 
-    <cn.lry.animation.guide.MagicTextView
+
+    <cn.lry.animation.widget.ColorTextView
         android:id="@+id/numberTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/giftIv"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:foreground="@android:color/holo_blue_bright"
-        app:innerShadowColor="#FF000000"
-        app:innerShadowDy="2"
-        app:innerShadowRadius="1"
-        app:strokeColor1="@android:color/white"
-        app:strokeJoinStyle1="miter"
-        app:strokeWidth1="1" />
+        android:textSize="26sp"
+        android:textStyle="bold" />
 
+
+    <!--app:foreground="@android:color/holo_blue_bright"-->
+    <!--app:innerShadowColor="#FF000000"-->
+    <!--android:textColor="@android:color/holo_blue_dark"-->
+    <!--app:innerShadowDy="2"-->
+    <!--app:innerShadowRadius="1"-->
+    <!--app:strokeColor1="@android:color/white"-->
+    <!--app:strokeJoinStyle1="miter"-->
+    <!--app:strokeWidth1="3"-->
+    <!---->
+    <!--/>-->
 </RelativeLayout>
