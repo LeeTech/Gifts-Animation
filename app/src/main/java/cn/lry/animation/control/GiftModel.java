@@ -22,6 +22,8 @@ public class GiftModel {
 
     private String sendUserPic;
 
+    private String hitCombo;
+
     public static GiftModel create(String giftId, String giftName, int giftCont, String giftPic, String sendUserId,
                                    String sendUserName, String sendUserPic) {
         GiftModel giftModel = new GiftModel();
@@ -89,5 +91,13 @@ public class GiftModel {
 
     public void setGiftPic(String giftPic) {
         this.giftPic = giftPic;
+    }
+
+    public String getHitCombo() {
+        return hitCombo;
+    }
+
+    public void setHitCombo(String hitCombo) {
+        this.hitCombo = hitCombo;
     }
 }

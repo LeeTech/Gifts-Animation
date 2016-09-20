@@ -16,4 +16,7 @@
 
     <color name="blue_start_color">#E72950</color>
     <color name="blue_end_color">#2DDEF4</color>
+
+    <color name="purple_start_color">#C7225C</color>
+    <color name="purple_end_color">#FE88A7</color>
 </resources>
