@@ -78,7 +78,7 @@ public class GiftsActivity extends AppCompatActivity {
 //                count++;
 //                magicTextView.setText("X" + count);
 //                magicTextView.startAnimation(giftNumAnim);
-                giftLl.loadGift(GiftModel.create("124", "安卓机器人", 1, "http://join.com", "123", "Lee124", "http://join.com"));
+                giftLl.loadGift(GiftModel.create("124", "安卓机器人", 1314, "http://join.com", "123", "Lee124", "http://join.com"));
 
             }
         });

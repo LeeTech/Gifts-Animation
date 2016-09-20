@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -64,13 +63,23 @@
 
     <cn.lry.animation.widget.ColorTextView
         android:id="@+id/numberTv"
+        style="@style/textStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_toRightOf="@+id/giftIv"
-        android:textSize="26sp"
+        android:textSize="35sp"
         android:textStyle="bold" />
+
+    <cn.lry.animation.widget.NumberTextView
+        android:id="@+id/numberImgTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/giftIv"
+        android:visibility="invisible" />
 
 
     <!--app:foreground="@android:color/holo_blue_bright"-->

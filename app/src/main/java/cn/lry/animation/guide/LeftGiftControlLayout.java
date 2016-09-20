@@ -175,7 +175,8 @@ public class LeftGiftControlLayout extends LinearLayout implements LeftGiftsItem
         if (mGiftQueue != null) {
 
             if (mSecondItemGift.getCurrentShowStatus() == LeftGiftsItemLayout.SHOWING) {
-                if (mSecondItemGift.getCurrentGiftId().equals(data.getGiftId()) && mSecondItemGift.getCurrentSendUserId().equals(data.getSendUserId())) {
+                if (mSecondItemGift.getCurrentGiftId().equals(data.getGiftId()) &&
+                        mSecondItemGift.getCurrentSendUserId().equals(data.getSendUserId())) {
                     mSecondItemGift.setGiftCount(data.getGiftCuont());
                     return;
 

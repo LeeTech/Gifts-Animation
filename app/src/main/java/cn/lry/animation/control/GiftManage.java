@@ -32,6 +32,8 @@ public class GiftManage {
 
     public static int[][] mTextShapeColors;
 
+    public static final int GIFT_MAX_NUMBER_SE = 20;
+
     /**
      * 用户配置礼物,如有新的礼物加入,add到集合即可(必须先初始化)
      *
@@ -47,13 +49,19 @@ public class GiftManage {
         mLeftGiftMap = new HashMap<>();
         mLeftGiftMap.put("123", R.mipmap.ic_launcher);
 
-        mNumColorArray = new int[]{3, 5, 10};
-        mRoundColorArray = new int[]{R.drawable.progress_background_shape,
-                R.drawable.progress_yellow_background_shape, R.drawable.progress_blue_background_shape};
+        mNumColorArray = new int[]{3, 5, 10, 15};
+
+        mRoundColorArray = new int[]{
+                R.drawable.progress_background_shape,
+                R.drawable.progress_yellow_background_shape,
+                R.drawable.progress_purple_background_shape,
+                R.drawable.progress_blue_background_shape};
+
         mTextShapeColors = new int[][]{
                 {Color.parseColor("#F6E04C"), Color.parseColor("#F6E04C"), Color.parseColor("#FE8A18")},
                 {Color.parseColor("#26E3F7"), Color.parseColor("#26E3F7"), Color.parseColor("#08A4FD")},
                 {Color.parseColor("#B6EA01"), Color.parseColor("#B6EA01"), Color.parseColor("#66CC00")},
+                {Color.parseColor("#FE89A8"), Color.parseColor("#FE89A8"), Color.parseColor("#FB4472")}
         };
 
 

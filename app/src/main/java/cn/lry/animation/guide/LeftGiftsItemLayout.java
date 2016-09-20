@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -25,6 +26,7 @@ import cn.lry.animation.control.GiftManage;
 import cn.lry.animation.control.GiftModel;
 import cn.lry.animation.utils.BusProvider;
 import cn.lry.animation.widget.ColorTextView;
+import cn.lry.animation.widget.NumberTextView;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -55,6 +57,8 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
     private ColorTextView mCountTv;
 
     private RoundProgressBar mRoundPb;
+
+    private NumberTextView mNumberImgTv;
 
     /**
      * 等待中
@@ -131,13 +135,14 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
     }
 
     private void initLayout(Context context, AttributeSet attrs) {
-        View contentView = View.inflate(context, R.layout.left_gift_item_layout, null);
-        mHeadIv = (ImageView) contentView.findViewById(R.id.headIv);
-        mNickNameTv = (TextView) contentView.findViewById(R.id.nickNameTv);
-        mInfoTv = (TextView) contentView.findViewById(R.id.infoTv);
-        mGiftsIv = (ImageView) contentView.findViewById(R.id.giftIv);
-        mCountTv = (ColorTextView) contentView.findViewById(R.id.numberTv);
-        mRoundPb = (RoundProgressBar) contentView.findViewById(R.id.roundPb);
+        LayoutInflater.from(getContext()).inflate(R.layout.left_gift_item_layout, this);
+        mHeadIv = (ImageView) findViewById(R.id.headIv);
+        mNickNameTv = (TextView) findViewById(R.id.nickNameTv);
+        mInfoTv = (TextView) findViewById(R.id.infoTv);
+        mGiftsIv = (ImageView) findViewById(R.id.giftIv);
+        mCountTv = (ColorTextView) findViewById(R.id.numberTv);
+        mRoundPb = (RoundProgressBar) findViewById(R.id.roundPb);
+        mNumberImgTv = (NumberTextView) findViewById(R.id.numberImgTv);
 
         mGiftAnimation = new TranslateAnimation(-300, 0, 0, 0);
         mGiftAnimation.setDuration(800);
@@ -152,9 +157,6 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
             mIndex = typedArray.getInteger(R.styleable.LeftGiftsItemLayout_left_gift_layout_index, 1);
         }
 
-        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        addView(contentView, lp);
         mHeadIv.setOnClickListener(this);
 
         mGiftAnimation.setAnimationListener(new Animation.AnimationListener() {
@@ -182,10 +184,11 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
      */
     public void setData(GiftModel data) {
         this.mGift = data;
-        mNum = 1;
         mGiftCount = this.mGift.getGiftCuont();
+        mNum = mGiftCount;
         mNickNameTv.setText(this.mGift.getSendUserName());
         mInfoTv.setText("送了一个" + this.mGift.getGiftName());
+        replaceNumberText(mNum);
         mCountTv.setText("x " + mNum);
     }
 
@@ -230,6 +233,7 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
         switch (msg.what) {
             case RESTART_GIFT_ANIMATION_CODE:
                 mNum++;
+                replaceNumberText(mNum);
                 changeRoundColor(mNum);
                 mCountTv.setText("x " + mNum);
                 mCountTv.startAnimation(mGiftNumAnim);
@@ -254,19 +258,30 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
                 if (i < GiftManage.mNumColorArray.length - 1) {
                     if (giftCount >= GiftManage.mNumColorArray[i] && giftCount < GiftManage.mNumColorArray[i + 1]) {
                         mCountTv.setTextShaderColors(GiftManage.mTextShapeColors[i]);
-                        settRoundColorTag(currentColorTag, i);
+                        setRoundColorTag(currentColorTag, i);
                     }
                 } else {
                     if (giftCount >= GiftManage.mNumColorArray[i]) {
                         mCountTv.setTextShaderColors(GiftManage.mTextShapeColors[i]);
-                        settRoundColorTag(currentColorTag, i);
+                        setRoundColorTag(currentColorTag, i);
                     }
                 }
             }
         }
     }
 
-    private void settRoundColorTag(int currentColorTag, int i) {
+    private void replaceNumberText(int num) {
+        if (num >= GiftManage.GIFT_MAX_NUMBER_SE) {
+            mNumberImgTv.setVisibility(View.VISIBLE);
+            mCountTv.setVisibility(View.INVISIBLE);
+            mNumberImgTv.updataNumber(String.valueOf(num));
+        } else {
+            mCountTv.setVisibility(View.VISIBLE);
+            mNumberImgTv.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void setRoundColorTag(int currentColorTag, int i) {
         mRoundPb.setRoundColor(GiftManage.mRoundColorArray[i]);
         if (currentColorTag != GiftManage.mNumColorArray[i]) {
             initRoundBackGround();
@@ -278,6 +293,8 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
         mRoundPb.resetLayoutWidth();
         mCountTv.resetShapeColors();
         mRoundPb.setVisibility(View.INVISIBLE);
+        mCountTv.setVisibility(View.VISIBLE);
+        mNumberImgTv.setVisibility(View.INVISIBLE);
     }
 
     private void initRoundBackGround() {
