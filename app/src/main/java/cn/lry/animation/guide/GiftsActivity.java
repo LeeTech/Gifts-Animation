@@ -61,7 +61,7 @@ public class GiftsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                floatingActionsMenu.loadGift(GiftManage.getGiftById("124"));
-                giftLl.loadGift(GiftModel.create("125", "安卓机器人", 1, "http://join.com", "123", "Lee125", "http://join.com"));
+                giftLl.loadGift(GiftModel.create("125", "安卓机器人", 3, "http://join.com", "123", "Lee125", "http://join.com"));
             }
         });
 

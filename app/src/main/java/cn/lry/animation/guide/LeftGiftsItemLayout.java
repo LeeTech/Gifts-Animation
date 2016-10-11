@@ -189,6 +189,7 @@ public class LeftGiftsItemLayout extends LinearLayout implements View.OnClickLis
         mNickNameTv.setText(this.mGift.getSendUserName());
         mInfoTv.setText("送了一个" + this.mGift.getGiftName());
         replaceNumberText(mNum);
+        changeRoundColor(mNum);
         mCountTv.setText("x " + mNum);
     }
 
